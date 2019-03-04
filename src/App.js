@@ -1,19 +1,22 @@
 import React, { Component } from "react";
 import "./App.css";
-import Image from './components/Image';
-import Awnsers from './components/Awnsers';
+import Image from "./components/Image";
+import Awnsers from "./components/Awnsers";
+import store from "./store";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div>
-          <Image/>
+      <Provider store={store}>
+        <div className="App">
+          <div>
+            <Image />
+          </div>
+          <div>
+            <Awnsers />
+          </div>
         </div>
-        <div>
-          <Awnsers/>
-        </div>
-      </div>
+      </Provider>
     );
   }
 }
