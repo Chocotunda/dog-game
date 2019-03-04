@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export default class AnswerList extends Component {
   renderDogBreed(breed) {
-    return <li key={breed}>
+    return <li key={breed}>{breed}
     </li>
   }
   render() {
