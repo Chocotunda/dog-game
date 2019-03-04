@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import DogBreedImagesContainer from './DogBreedImagesContainer';
+import DogsList from './components/DogsList';
+
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-       <DogBreedImagesContainer />
+       <h1><DogsList DogsList=''/>
+       </h1>
       </div>
     );
   }
