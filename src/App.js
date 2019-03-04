@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Image from './components/Image';
-import Questions from './components/Questions';
+import Awnsers from './components/Awnsers';
 
 class App extends Component {
   render() {
@@ -11,7 +11,7 @@ class App extends Component {
           <Image/>
         </div>
         <div>
-      <Questions/>
+          <Awnsers/>
         </div>
       </div>
     );
