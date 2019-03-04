@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import "./App.css";
 import Image from "./components/Image";
 import Awnsers from "./components/Awnsers";
-import store from "./store";
+
 
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
+
         <div className="App">
           <div>
             <Image />
@@ -16,7 +16,7 @@ class App extends Component {
             <Awnsers />
           </div>
         </div>
-      </Provider>
+
     );
   }
 }
