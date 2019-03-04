@@ -1,22 +1,17 @@
 import React, { Component } from "react";
 import "./App.css";
+import Image from './components/Image';
+import Questions from './components/Questions';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <div>
-          <img
-            src="https://static.valentinosdisplays.com/originalimages/medium/2741-dog-mannequin-uk.jpg"
-            alt="dummy dog"
-          />
+          <Image/>
         </div>
         <div>
-          <ul>
-            <li>Question 1</li>
-            <li>Question 2</li>
-            <li>Question 3</li>
-          </ul>
+      <Questions/>
         </div>
       </div>
     );
