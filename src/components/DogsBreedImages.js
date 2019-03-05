@@ -1,14 +1,6 @@
 import React, { Component } from "react";
 
 export default class DogsBreedImages extends Component {
-  renderDogBreed(breed) {
-    return (
-      <li key={breed}>
-        <img src={breed} alt={breed} />
-      </li>
-    );
-  }
-
   render() {
     const { dogBreeds } = this.props;
     const sliceNumber = Math.floor(Math.random() * 5);
@@ -26,6 +18,14 @@ export default class DogsBreedImages extends Component {
           </ul>
         )}
       </div>
+    );
+  }
+
+  renderDogBreed(breed) {
+    return (
+      <li key={breed}>
+        <img src={breed} alt={breed} />
+      </li>
     );
   }
 }

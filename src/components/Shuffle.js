@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import shuffleArray from "shuffle-array";
-//import AnswerList from './AnswerList'
 
 
 export default class Shuffle extends Component {
