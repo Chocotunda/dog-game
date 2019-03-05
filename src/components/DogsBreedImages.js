@@ -15,7 +15,7 @@ export default class DogsBreedImages extends Component {
     const sliceNumber = Math.floor(Math.random() * 5)    
     return (
       <div className="dogs-images">
-        <h1>Dogs Breed Images</h1>
+        <h1>Breaking Breeds</h1>
 
         {!dogBreeds && 'Loading...'}
 
