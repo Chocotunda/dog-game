@@ -4,14 +4,15 @@ export default class DogsBreedImages extends Component {
 
   renderDogBreed(breed) {
     return <li key={breed}>
-      <img src = "https://dog.ceo/api/breeds/image/random" alt={breed} />
-      {breed}
+      
+      <img src = {breed} alt={breed} />
+      
     </li>
   }
 
   render() {
     const { dogBreeds } = this.props
-
+    const sliceNumber = Math.floor(Math.random() * 20)
     return (
       <div className="dogs-images">
         <h1>Dogs Breed Images</h1>
@@ -19,7 +20,14 @@ export default class DogsBreedImages extends Component {
         {!dogBreeds && 'Loading...'}
 
         {dogBreeds &&
-          <ul>{dogBreeds.map(this.renderDogBreed)}</ul>
+          
+          <ul>
+            
+          {dogBreeds
+            .slice(sliceNumber, sliceNumber+1)
+            .map(this.renderDogBreed)
+            }
+          </ul>
         }
       </div>
     )

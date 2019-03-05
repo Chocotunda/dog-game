@@ -10,7 +10,7 @@ export default class DogsBreedImagesContainer extends Component {
         request
             .get('https://dog.ceo/api/breed/hound/images')
             .then(response => {
-                const breeds = Object.keys(response.body.message)
+                const breeds = response.body.message
                 this.updateBreeds(breeds)
             })
             .catch(console.error)
