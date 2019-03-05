@@ -1,30 +1,29 @@
-import React, { Component } from 'react'
-import request from 'superagent'
-import DogsBreedImages from './DogsBreedImages'
-
+import React, { Component } from "react";
+import request from "superagent";
+import DogsBreedImages from "./DogsBreedImages";
 
 export default class DogsBreedImagesContainer extends Component {
-    state = { dogBreeds: null }
+  state = { dogBreeds: null };
 
-    componentDidMount() {
-        const exactBreed = "akati"
-        request
-        
-            .get('https://dog.ceo/api/breed/'+exactBreed+'/images')
-            .then(response => {
-                const breeds = response.body.message
-                this.updateBreeds(breeds)
-            })
-            .catch(console.error)
-    }
+  componentDidMount() {
+    const exactBreed = "akita";
+    request
 
-    updateBreeds(breeds) {
-        this.setState({
-            dogBreeds: breeds
-        })
-    }
+      .get("https://dog.ceo/api/breed/" + exactBreed + "/images")
+      .then(response => {
+        const breeds = response.body.message;
+        this.updateBreeds(breeds);
+      })
+      .catch(console.error);
+  }
 
-    render() {
-        return <DogsBreedImages dogBreeds={this.state.dogBreeds} />
-    }
+  updateBreeds(breeds) {
+    this.setState({
+      dogBreeds: breeds
+    });
+  }
+
+  render() {
+    return <DogsBreedImages dogBreeds={this.state.dogBreeds} />;
+  }
 }

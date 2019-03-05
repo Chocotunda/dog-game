@@ -1,30 +1,28 @@
-import React, { Component } from 'react';
-import './App.css';
-import store from './store'
+import React, { Component } from "react";
+import "./App.css";
+import store from "./store";
+import ShuffleContainer from "./ShuffleContainer";
 
-import DogsBreedImagesContainer from './components/DogsBreedImagesContainer'
-import { Provider } from 'react-redux'
-import AnswerListContainer from './AnswerListContainer'
+import DogsBreedImagesContainer from "./components/DogsBreedImagesContainer";
+import { Provider } from "react-redux";
+import AnswerListContainer from "./AnswerListContainer";
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
-
-       
-
         <div className="App">
-      <DogsBreedImagesContainer />
+          <DogsBreedImagesContainer />
           <h1>Breaking Breeds</h1>
           <div>option 1</div>
           <div>option 2</div>
           <div>option 3</div>
+          <ShuffleContainer />
           <AnswerListContainer />
         </div>
       </Provider>
     );
   }
 }
-
 
 export default App;
