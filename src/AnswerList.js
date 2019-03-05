@@ -8,20 +8,17 @@ export default class AnswerList extends Component {
 
   render() {
     const { dogBreeds } = this.props
+    const shuffleArray = require('shuffle-array')
+    console.log(dogBreeds)
     const limit = 3
-    // const random = (array) => {
-      // return array[Math.floor(Math.random() * array.length)]
-    // }
-
     const maxThree = () => {
-
       if (!dogBreeds) {
         return 'Loading...'
-      } else {
+      } shuffleArray(dogBreeds)
         return <ul>{dogBreeds.slice(0, limit).map(this.renderDogBreed)}</ul>
-      }
+      
     }
-    //  [Math.floor(Math.random() * dogBreeds.length)]
+
     return (
       <div className="dogs-list">
         <h1>What breed am I?</h1>
