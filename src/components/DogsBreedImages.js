@@ -12,7 +12,7 @@ export default class DogsBreedImages extends Component {
 
   render() {
     const { dogBreeds } = this.props
-    const sliceNumber = Math.floor(Math.random() * 20)
+    const sliceNumber = Math.floor(Math.random() * 5)    
     return (
       <div className="dogs-images">
         <h1>Dogs Breed Images</h1>
@@ -20,14 +20,12 @@ export default class DogsBreedImages extends Component {
         {!dogBreeds && 'Loading...'}
 
         {dogBreeds &&
-          
-          <ul>
-            
+        <ul>
           {dogBreeds
             .slice(sliceNumber, sliceNumber+1)
             .map(this.renderDogBreed)
-            }
-          </ul>
+          }
+        </ul>
         }
       </div>
     )

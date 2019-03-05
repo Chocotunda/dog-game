@@ -7,8 +7,10 @@ export default class DogsBreedImagesContainer extends Component {
     state = { dogBreeds: null }
 
     componentDidMount() {
+        const exactBreed = "akati"
         request
-            .get('https://dog.ceo/api/breed/hound/images')
+        
+            .get('https://dog.ceo/api/breed/'+exactBreed+'/images')
             .then(response => {
                 const breeds = response.body.message
                 this.updateBreeds(breeds)
