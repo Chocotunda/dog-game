@@ -16,8 +16,5 @@ export default class AnswerList extends Component {
     }
 
       return <Shuffle shuffle={optionalAnswer()} />
-
-
-    
   }
 }

@@ -32,5 +32,6 @@ export default class Shuffle extends Component {
     //     {maxThree()}
     // //   </div>
     // );
+
   }
 }
