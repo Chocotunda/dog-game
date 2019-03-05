@@ -1,36 +1,23 @@
 import React, { Component } from "react";
-// import shuffleArray from "shuffle-array";
-import AnswerList from './AnswerList'
+import shuffleArray from "shuffle-array";
+//import AnswerList from './AnswerList'
 
 
 export default class Shuffle extends Component {
-  // renderDogBreed(breed) {
-    // return <li key={breed}>{breed}</li>;
-  // }
 
   render() {
-    console.log(this.props, 'what?')
-    return <div>HAI</div>
-    // const { dogBreeds } = this.props;
-    // console.log("before shuffle:", dogBreeds);
-    // if (dogBreeds) {
-    //   shuffleArray(dogBreeds);
-    //   console.log("after shuffle:", dogBreeds);
-    // }
-    // const limit = 3;
-    // const maxThree = () => {
-    //   if (!dogBreeds) {
-    //     return "Loading...";
-    //   }
+    const wrongAnswer = this.props.shuffle1
+    const anotherWrongAnswer = this.props.shuffle2
+    const goodAnswer = this.props.shuffle3
 
-    //   return <ul>{dogBreeds.slice(0, limit).map(this.renderDogBreed)}</ul>;
-    // };
+    const list = [wrongAnswer, anotherWrongAnswer, goodAnswer]
+    console.log(list, 'normal')
+    shuffleArray(list)
 
-    // return (
-    //   <div className="dogs-list">
-    //     <h1>What breed am I?</h1>
-    //     {maxThree()}
-    // //   </div>
-    // );
+    return <ul>
+      <li>{wrongAnswer}</li>
+      <li>{anotherWrongAnswer}</li>
+      <li>{goodAnswer}</li>
+    </ul>
   }
 }

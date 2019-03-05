@@ -15,7 +15,7 @@ export default class AnswerList extends Component {
       return <ul>{dogBreeds[ranDogNum]}</ul>;
     }
 
-      return <Shuffle shuffle={optionalAnswer()} />
+      return <Shuffle shuffle1={optionalAnswer()} shuffle2={optionalAnswer()} shuffle3={optionalAnswer()}/>
 
 
     
