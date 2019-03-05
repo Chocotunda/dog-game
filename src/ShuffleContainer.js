@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import request from 'superagent'
-import AnswerList from './AnswerList'
+import Shuffle from './Shuffle'
 
-export default class AnswerListContainer extends Component {
+export default class ShuffleContainer extends Component {
     state = { dogBreeds: null }
 
     componentDidMount() {
@@ -22,6 +22,6 @@ export default class AnswerListContainer extends Component {
     }
 
     render() {
-        return <AnswerList dogBreeds={this.state.dogBreeds} />
+        return <Shuffle dogBreeds={this.state.dogBreeds} />
     }
 }

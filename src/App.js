@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import store from './store'
-import AnswerListContainer from './AnswerListContainer'
+import ShuffleContainer from './ShuffleContainer'
 import { Provider } from 'react-redux'
 
 class App extends Component {
@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <Provider store={store}>
       <div className="App">
-       <AnswerListContainer />
+       <ShuffleContainer />
       </div>
       </Provider>
     );
