@@ -1,21 +1,18 @@
-import React, { Component } from "react";
-import "./App.css";
-import Image from "./components/Image";
-import Awnsers from "./components/Awnsers";
+import React, { Component } from 'react';
+import './App.css';
+import store from './store'
+import AnswerListContainer from './AnswerListContainer'
+import { Provider } from 'react-redux'
 
 
 class App extends Component {
   render() {
     return (
-
-        <div className="App">
-          <div>
-            <Image />
-          </div>
-          <div>
-            <Awnsers />
-          </div>
-        </div>
+      <Provider store={store}>
+      <div className="App">
+       <AnswerListContainer />
+      </div>
+      </Provider>
 
     );
   }
