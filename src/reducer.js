@@ -1,8 +1,8 @@
 const reducer = (state = [], action = {}) => {
-    switch (action.type) {
-        default:
-            return state
-    }
-}
+  switch (action.type) {
+    default:
+      return state;
+  }
+};
 
-export default reducer
+export default reducer;
