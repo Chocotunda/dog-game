@@ -25,3 +25,4 @@ export default class AnswerListContainer extends Component {
         return <AnswerList dogBreeds={this.state.dogBreeds} />
     }
 }
+
