@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import shuffleArray from "shuffle-array";
-//import AnswerList from './AnswerList'
 
 
 export default class Shuffle extends Component {
@@ -17,7 +16,7 @@ export default class Shuffle extends Component {
     return <ul>
       <li>{wrongAnswer}</li>
       <li>{anotherWrongAnswer}</li>
-      <li>{goodAnswer}</li>
+      <li id= "true">{goodAnswer}</li>
     </ul>
   }
 }

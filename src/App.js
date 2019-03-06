@@ -11,7 +11,7 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           <DogsBreedImagesContainer />
-          <h1>Breaking Breeds</h1>
+
           <AnswerListContainer />
         </div>
       </Provider>
