@@ -10,7 +10,6 @@ export default class Shuffle extends Component {
     const goodAnswer = this.props.shuffle3
 
     const list = [wrongAnswer, anotherWrongAnswer, goodAnswer]
-    console.log(list, 'normal')
     shuffleArray(list)
 
     return <ul>
