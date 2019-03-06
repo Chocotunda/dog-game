@@ -1,20 +1,35 @@
 import React, { Component } from "react";
 import "./App.css";
-import store from "./store";
 import DogsBreedImagesContainer from "./components/DogsBreedImagesContainer";
-import { Provider } from "react-redux";
 import AnswerListContainer from "./components/AnswerListContainer";
+import request from "superagent";
 
 class App extends Component {
+  state = { dogBreeds: null };
+
+  componentDidMount() {
+    request
+      .get("https://dog.ceo/api/breeds/list/all")
+      .then(response => {
+        const breeds = Object.keys(response.body.message);
+        this.updateBreeds(breeds);
+      })
+      .catch(console.error);
+  }
+
+  updateBreeds(breeds) {
+    this.setState({
+      dogBreeds: breeds
+    });
+  }
+
   render() {
     return (
-      <Provider store={store}>
-        <div className="App">
-          <DogsBreedImagesContainer />
-          <h1>Breaking Breeds</h1>
-          <AnswerListContainer />
-        </div>
-      </Provider>
+      <div className="App">
+        <h1>Breaking Breeds</h1>
+        <DogsBreedImagesContainer />
+        <AnswerListContainer breedList={this.state.dogBreeds}/>
+      </div>
     );
   }
 }
