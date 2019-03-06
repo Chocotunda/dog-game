@@ -14,7 +14,6 @@ rightAnswer = () => {
 
   render() {
 
-    
     return (
       <Provider store={store}>
         <div className="App">
