@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {
-  fetchBreedList,
-  setCorrectAnswer,
-  setCurrentBreed,
-  setBreedList
-} from "../actions/fetch";
+import { fetchBreedList, setCorrectAnswer, setCurrentBreed, setBreedList} from "../actions/fetch";
 
 class AnswerListContainer extends Component {
   componentDidMount() {
@@ -13,8 +8,13 @@ class AnswerListContainer extends Component {
     // return this.state;
   }
 
-  render() {
-    return <div>Hell World</div>;
+  render(props) {
+    console.log("----", this.setCurrentBreed)
+    return <div>
+      <button></button>
+      <button></button>
+      <button></button>
+    </div>;
   }
 }
 

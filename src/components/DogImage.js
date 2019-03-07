@@ -31,18 +31,18 @@ class DogImage extends Component {
   }
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     if (this.props.image !== null && this.state.dogBreedUrl !== null) {
       return <img height={"200px"} src={this.state.dogBreedUrl} />;
     }
-
+  
     return <h1>Loading</h1>;
-    console.log("PROPE", this.props.image);
+    // console.log("PROPE", this.props.image);
   }
 }
 
 const mapStateToProps = state => {
-  console.log("MPSTE", state.game.correctAnswer);
+  // console.log("MPSTE", state.game.correctAnswer);
   return { image: state.game.correctAnswer };
 };
 

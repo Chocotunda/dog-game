@@ -23,15 +23,14 @@ export function fetchBreedList() {
         [],
         3
       );
-      dispatch(
-        setCorrectAnswer(
+      dispatch(setBreedList(remainingBreeds));
+      dispatch(setCurrentBreed(currentBreeds));
+      dispatch(setCorrectAnswer(
           currentBreeds[
             Math.floor(Math.random() * Math.floor(currentBreeds.length))
           ]
         )
       );
-      dispatch(setBreedList(remainingBreeds));
-      dispatch(setCurrentBreed(currentBreeds));
     });
   };
 }
