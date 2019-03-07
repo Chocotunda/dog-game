@@ -6,7 +6,6 @@ const initialState = {
 };
 
 const dogBreedListReducer = (state = [], action) => {
-  console.log(state, action);
   switch (action.type) {
     case "SET_BREEDLIST":
       return action.payload;

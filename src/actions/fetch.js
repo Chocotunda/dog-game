@@ -23,30 +23,34 @@ export function fetchBreedList() {
         [],
         3
       );
-      dispatch(setCorrectAnswer(currentBreeds[Math.floor(Math.random() * Math.floor(currentBreeds.length))]))
+      dispatch(
+        setCorrectAnswer(
+          currentBreeds[
+            Math.floor(Math.random() * Math.floor(currentBreeds.length))
+          ]
+        )
+      );
       dispatch(setBreedList(remainingBreeds));
       dispatch(setCurrentBreed(currentBreeds));
     });
   };
 }
 
-
-
-function setCorrectAnswer(payload) {
+export function setCorrectAnswer(payload) {
   return {
     type: "SET_CORRECT_ANSWER",
     payload: payload
-  }
+  };
 }
 
-function setCurrentBreed(payload) {
+export function setCurrentBreed(payload) {
   return {
     type: "SET_CURRENT_BREED",
     payload: payload
   };
 }
 
-function setBreedList(payload) {
+export function setBreedList(payload) {
   return {
     type: "SET_BREEDLIST",
     payload: payload
