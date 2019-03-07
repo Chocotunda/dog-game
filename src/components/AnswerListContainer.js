@@ -1,37 +1,28 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { selectBreed } from "../actions/index";
+import { fetchBreedList } from "../actions/fetch";
 
 class AnswerListContainer extends Component {
-  renderList() {
-    return this.props.breeds.map(dog => {
-      return (
-        <div className="item" key={dog.breed}>
-          <div className="right floated content">
-            <button
-              className="ui button primary"
-              onClick={() => this.props.selectBreed(dog)}
-            >
-              Select
-            </button>
-          </div>
-          <div className="content">{dog.breed}</div>
-        </div>
-      );
-    });
+  componentDidMount() {
+    console.log("CP3O", this.props.fetchBreedList());
+    this.props.fetchBreedList();
+    // return this.state;
   }
 
   render() {
-    return <div className="ui divided list">{this.renderList()}</div>;
+    console.log(this.props);
+    return <div>Hell World</div>;
   }
 }
 
 const mapStateToProps = state => {
-  // console.log("state",state);
-  return { breeds: state.breed };
+  console.log("state", state);
+  return {
+    dogBreedList: state.dogBreedList
+  };
 };
 
 export default connect(
   mapStateToProps,
-  { selectBreed }
+  { fetchBreedList }
 )(AnswerListContainer);

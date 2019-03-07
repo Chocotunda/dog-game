@@ -1,37 +1,41 @@
 import { combineReducers } from "redux";
-
-const breedReducer = () => {
-  return [
-    { breed: "Poop", answer: "Wrong" },
-    { breed: "Pooper", answer: "Wrong" },
-    { breed: "PoopieVonPoopenStein", answer: "Correct" }
-  ];
-};
-
 const initialState = {
   currentBreeds: null,
   correctAnswer: null,
-  correct: null,
-}
-
-const selectedBreedReducer = (selectedBreed = null, action) => {
-  if (action.type === "BREED_SELECTED") {
-    return action.payload;
-  }
-  return selectedBreed;
+  score: null
 };
 
-const remainingBreeds = (state = null, action){
-  // deals with breed we are not using -> store 84 breeds here (and leave them for now)
-}
+const dogBreedListReducer = (state = [], action) => {
+  console.log(state, action);
+  switch (action.type) {
+    case "SET_BREEDLIST":
+      return action.payload;
 
+    default:
+      return state;
+  }
+};
 
+const gameReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case "SET_CURRENT_BREED":
+      return { ...state, currentBreeds: action.payload };
+    case "SET_CORRECT_ANSWER":
+      return { ...state, correctAnswer: action.payload };
+    default:
+      return state;
+  }
+};
 
-const game = (state = initialState, action){
-  // 
-}
+// const remainingBreeds = (state = null, action){
+//   // deals with breed we are not using -> store 84 breeds here (and leave them for now)
+// }
+
+// const game = (state = initialState, action){
+//   //
+// }
 
 export default combineReducers({
-  breed: breedReducer,
-  selectedBreed: selectedBreedReducer
+  game: gameReducer,
+  dogBreedList: dogBreedListReducer
 });

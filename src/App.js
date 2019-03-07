@@ -1,6 +1,5 @@
 import React from "react";
 import AnswerListContainer from './components/AnswerListContainer';
-import AnswerDetail from './components/AnswerDetail';
 
 
 const App = () => {
@@ -11,7 +10,6 @@ const App = () => {
           <AnswerListContainer/>
         </div>
         <div className="column eight wide">
-          <AnswerDetail />
         </div>
       </div>
     </div>
