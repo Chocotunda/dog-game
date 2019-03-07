@@ -1,29 +1,23 @@
 import React, { Component } from "react";
 import request from "superagent";
 import DogsBreedImages from "./DogsBreedImages";
+import shuffleArray from "shuffle-array";
 
 export default class DogsBreedImagesContainer extends Component {
-  state = { dogBreeds: null };
+  state = { dogBreed: null };
 
   componentDidMount() {
-    const exactBreed = "akita";
+    const exactBreed = this.props.answer;
     request
-
       .get("https://dog.ceo/api/breed/" + exactBreed + "/images")
       .then(response => {
-        const breeds = response.body.message;
-        this.updateBreeds(breeds);
+        const breed = response.body.message;
+        this.setState({ dogBreed: breed })
       })
       .catch(console.error);
   }
 
-  updateBreeds(breeds) {
-    this.setState({
-      dogBreeds: breeds
-    });
-  }
-
   render() {
-    return <DogsBreedImages dogBreeds={this.state.dogBreeds} />;
+    return <DogsBreedImages dogBreeds={this.state.dogBreed} />;
   }
 }
