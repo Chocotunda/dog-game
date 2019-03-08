@@ -1,6 +1,7 @@
 import request from "superagent";
 import shuffleArray from "shuffle-array";
 import { mathRandom } from '../lib/reusable'
+import { setCorrectAnswer, setCurrentBreed, setBreedList } from './set'
 
 function getRandomDogs(remainingBreeds, currentBreeds, count) {
   const shuffledBreeds = shuffleArray(remainingBreeds);
@@ -23,37 +24,16 @@ export function fetchBreedList() {
         allBreeds,
         [],
         3
-      );
+      )
       dispatch(
         setCorrectAnswer(
           currentBreeds[
           mathRandom(currentBreeds.length)
           ]
         )
-      );
-      dispatch(setBreedList(remainingBreeds));
-      dispatch(setCurrentBreed(currentBreeds));
-    });
-  };
-}
-
-export function setCorrectAnswer(payload) {
-  return {
-    type: "SET_CORRECT_ANSWER",
-    payload: payload
-  };
-}
-
-export function setCurrentBreed(payload) {
-  return {
-    type: "SET_CURRENT_BREED",
-    payload: payload
-  };
-}
-
-export function setBreedList(payload) {
-  return {
-    type: "SET_BREEDLIST",
-    payload: payload
-  };
+      )
+      dispatch(setCurrentBreed(currentBreeds)) 
+      dispatch(setBreedList(remainingBreeds))
+    })
+  }
 }
