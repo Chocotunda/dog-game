@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import request from "superagent";
 import { connect } from "react-redux";
-// import { setCorrectAnswer } from "../actions/fetch";
+import { mathRandom } from '../lib/reusable'
 
 class DogImage extends Component {
   state = { dogBreedUrl: null };
@@ -13,7 +13,7 @@ class DogImage extends Component {
       .then(response => {
         const breed =
           response.body.message[
-            Math.floor(Math.random() * Math.floor(response.body.message.length))
+            mathRandom(response.body.message.length)
           ];
         this.setState({ dogBreedUrl: breed });
       })
@@ -37,7 +37,6 @@ class DogImage extends Component {
     }
 
     return <h1>Loading</h1>;
-    console.log("PROPE", this.props.image);
   }
 }
 
