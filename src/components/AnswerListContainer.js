@@ -36,7 +36,6 @@ class AnswerListContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("hey", state)
   return {
     currentBreeds: setCurrentBreed,
     correctAnswer: setCorrectAnswer,

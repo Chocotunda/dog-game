@@ -3,8 +3,8 @@ import AnswerListContainer from "./components/AnswerListContainer";
 import DogImage from "./components/DogImage";
 import { connect } from "react-redux";
 
-const App = () => {
-  console.log()
+const App = (props) => {
+
   return (
     <div className="ui container grid">
       <div className="ui row">
