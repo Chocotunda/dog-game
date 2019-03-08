@@ -1,5 +1,7 @@
 import request from "superagent";
 import shuffleArray from "shuffle-array";
+import { mathRandom } from '../lib/reusable'
+import { setCorrectAnswer, setCurrentBreed, setBreedList } from './set'
 
 function getRandomDogs(remainingBreeds, currentBreeds, count) {
   const shuffledBreeds = shuffleArray(remainingBreeds);
@@ -15,43 +17,24 @@ function getRandomDogs(remainingBreeds, currentBreeds, count) {
 }
 
 export function fetchBreedList() {
-  return function(dispatch) {
+  return function (dispatch) {
     return request.get("https://dog.ceo/api/breeds/list/all").then(response => {
       const allBreeds = Object.keys(response.body.message);
       const { remainingBreeds, currentBreeds } = getRandomDogs(
         allBreeds,
         [],
         3
-      );
-      dispatch(setBreedList(remainingBreeds));
-      dispatch(setCurrentBreed(currentBreeds));
-      dispatch(setCorrectAnswer(
+      )
+      dispatch(
+        setCorrectAnswer(
           currentBreeds[
-            Math.floor(Math.random() * Math.floor(currentBreeds.length))
+          mathRandom(currentBreeds.length)
           ]
         )
-      );
-    });
-  };
-}
 
-export function setCorrectAnswer(payload) {
-  return {
-    type: "SET_CORRECT_ANSWER",
-    payload: payload
-  };
-}
-
-export function setCurrentBreed(payload) {
-  return {
-    type: "SET_CURRENT_BREED",
-    payload: payload
-  };
-}
-
-export function setBreedList(payload) {
-  return {
-    type: "SET_BREEDLIST",
-    payload: payload
-  };
+      )
+      dispatch(setCurrentBreed(currentBreeds)) 
+      dispatch(setBreedList(remainingBreeds))
+    })
+  }
 }

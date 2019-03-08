@@ -1,18 +1,20 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchBreedList, setCorrectAnswer, setCurrentBreed, setBreedList} from "../actions/fetch";
+
+import { fetchBreedList } from '../actions/fetch'
 import {setColor} from "../actions/buttonClick"
+import {
+  setCorrectAnswer,
+  setCurrentBreed,
+  setBreedList
+} from "../actions/set"
 
 class AnswerListContainer extends Component {
   componentDidMount() {
     this.props.fetchBreedList();
-    // return this.state;
   }
 
   renderList (){
-    // console.log("STATES",this.state)
-    // console.log("PROPS", this.props.currentBreedList)
-
     return  this.props.currentBreedList
     .map(dat  => {
         return (<div key={dat}>
@@ -25,7 +27,7 @@ class AnswerListContainer extends Component {
   }
 
   render() {
- //   console.log("----", )
+
     if (this.props.currentBreedList !==null) {
       return <div>{this.renderList()}</div>
     }
