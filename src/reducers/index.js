@@ -26,6 +26,15 @@ const gameReducer = (state = initialState, action) => {
   }
 };
 
+const buttonReducer = (state = initialState, action) =>{
+  switch (action.type) {
+    case "BUTTON_CLICK":
+      return {...state, score: action.payload }
+    default:
+      return state;
+  }
+}
+
 // const remainingBreeds = (state = null, action){
 //   // deals with breed we are not using -> store 84 breeds here (and leave them for now)
 // }
@@ -36,5 +45,6 @@ const gameReducer = (state = initialState, action) => {
 
 export default combineReducers({
   game: gameReducer,
-  dogBreedList: dogBreedListReducer
+  dogBreedList: dogBreedListReducer,
+  buttonClick: buttonReducer
 });

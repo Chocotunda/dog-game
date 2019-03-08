@@ -33,7 +33,7 @@ class DogImage extends Component {
   render() {
     // console.log(this.state);
     if (this.props.image !== null && this.state.dogBreedUrl !== null) {
-      return <img height={"200px"} src={this.state.dogBreedUrl} />;
+      return <img height={"400px"} src={this.state.dogBreedUrl} alt="Dogy" />;
     }
   
     return <h1>Loading</h1>;
