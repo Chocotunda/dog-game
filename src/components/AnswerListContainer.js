@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { fetchBreedList } from '../actions/fetch'
 import {
-  fetchBreedList,
   setCorrectAnswer,
   setCurrentBreed,
   setBreedList
-} from "../actions/fetch";
+} from "../actions/set"
 
 class AnswerListContainer extends Component {
   componentDidMount() {
     this.props.fetchBreedList();
-    // return this.state;
   }
 
   render() {

@@ -1,49 +1,34 @@
 import React, { Component } from "react";
-import request from "superagent";
 import { connect } from "react-redux";
-// import { setCorrectAnswer } from "../actions/fetch";
+import { fetchDogImage } from '../actions/fetchDog'
 
 class DogImage extends Component {
-  state = { dogBreedUrl: null };
-
-  fetchDogImage() {
-    const exactBreed = this.props.image;
-    request
-      .get("https://dog.ceo/api/breed/" + exactBreed + "/images")
-      .then(response => {
-        const breed =
-          response.body.message[
-            Math.floor(Math.random() * Math.floor(response.body.message.length))
-          ];
-        this.setState({ dogBreedUrl: breed });
-      })
-      .catch(console.error);
-  }
 
   componentDidMount() {
-    this.fetchDogImage();
+    this.props.fetchDogImage(this.props.correctAnswer);
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.image !== this.props.image) {
-      this.fetchDogImage();
+    if (prevProps.correctAnswer !== this.props.correctAnswer) {
+      this.props.fetchDogImage(this.props.correctAnswer);
     }
   }
 
   render() {
-    console.log(this.state);
-    if (this.props.image !== null && this.state.dogBreedUrl !== null) {
-      return <img height={"200px"} src={this.state.dogBreedUrl} />;
+    if (this.props.correctAnswer !== null && this.props.image !== null) {
+      return <img height={"200px"} src={this.props.image} />;
     }
 
-    return <h1>Loading</h1>;
-    console.log("PROPE", this.props.image);
+    return <h1>Loading...</h1>;
   }
 }
 
 const mapStateToProps = state => {
-  console.log("MPSTE", state.game.correctAnswer);
-  return { image: state.game.correctAnswer };
+  console.log(state, 'state')
+  return {
+    correctAnswer: state.game.correctAnswer,
+    image: state.game.image
+  };
 };
 
-export default connect(mapStateToProps)(DogImage);
+export default connect(mapStateToProps, { fetchDogImage })(DogImage);
