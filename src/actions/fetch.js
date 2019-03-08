@@ -31,6 +31,7 @@ export function fetchBreedList() {
           mathRandom(currentBreeds.length)
           ]
         )
+
       )
       dispatch(setCurrentBreed(currentBreeds)) 
       dispatch(setBreedList(remainingBreeds))

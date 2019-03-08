@@ -7,14 +7,22 @@ const App = () => {
     <div className="ui container grid">
       <div className="ui row">
         <div className="column eight wide">
-          <DogImage />
+
+          {props.correctAnswer === null ? <h1>Loading Image...</h1> : <DogImage />}
+
         </div>
-        <div className="column eight wide">
-          <AnswerListContainer />
+        <div className="column eight">
+        <AnswerListContainer/>
         </div>
       </div>
     </div>
   );
 };
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    correctAnswer: state.game.correctAnswer,
+  };
+};
+
+export default connect(mapStateToProps)(App);

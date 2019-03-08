@@ -15,15 +15,19 @@ class DogImage extends Component {
   }
 
   render() {
+    if (this.props.image !== null && this.state.dogBreedUrl !== null) {
+      return <img height={"400px"} src={this.state.dogBreedUrl} alt="Dogy" />;
+    }
+    return <h1>Loading</h1>;
     if (this.props.correctAnswer !== null && this.props.image !== null) {
       return <img height={"200px"} src={this.props.image} />;
     }
-
     return <h1>Loading...</h1>;
   }
 }
 
 const mapStateToProps = state => {
+
   return {
     correctAnswer: state.game.correctAnswer,
     image: state.game.image

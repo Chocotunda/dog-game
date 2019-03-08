@@ -27,9 +27,17 @@ const gameReducer = (state = initialState, action) => {
     default:
       return state;
   }
-}
+
+const buttonReducer = (state = { color: 'red' }, action) =>{
+  switch (action.type) {
+    case "SET_COLOR":
+      return {...state,  color: action.payload }
+    default:
+      return state;
+ try
 
 export default combineReducers({
   game: gameReducer,
-  dogBreedList: dogBreedListReducer
+  dogBreedList: dogBreedListReducer,
+  setColor: buttonReducer
 });
