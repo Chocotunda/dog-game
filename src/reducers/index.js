@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 const initialState = {
   currentBreeds: null,
   correctAnswer: null,
-  score: null
+  score: null,
 };
 
 const dogBreedListReducer = (state = [], action) => {
@@ -26,10 +26,10 @@ const gameReducer = (state = initialState, action) => {
   }
 };
 
-const buttonReducer = (state = initialState, action) =>{
+const buttonReducer = (state = { color: 'red' }, action) =>{
   switch (action.type) {
-    case "BUTTON_CLICK":
-      return {...state, score: action.payload }
+    case "SET_COLOR":
+      return {...state,  color: action.payload }
     default:
       return state;
   }
@@ -46,5 +46,5 @@ const buttonReducer = (state = initialState, action) =>{
 export default combineReducers({
   game: gameReducer,
   dogBreedList: dogBreedListReducer,
-  buttonClick: buttonReducer
+  setColor: buttonReducer
 });

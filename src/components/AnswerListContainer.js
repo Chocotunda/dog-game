@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchBreedList, setCorrectAnswer, setCurrentBreed, setBreedList} from "../actions/fetch";
-import {buttonClick} from "../actions/buttonClick"
+import {setColor} from "../actions/buttonClick"
 
 class AnswerListContainer extends Component {
   componentDidMount() {
@@ -16,7 +16,8 @@ class AnswerListContainer extends Component {
     return  this.props.currentBreedList
     .map(dat  => {
         return (<div key={dat}>
-          <button value= {dat} onClick={()=>this.props.buttonClick()}>{dat}</button>
+          <button style={this.props.color} 
+          value={dat} onClick={()=>this.props.setColor('green')}>{dat}</button>
         </div>
       )
     } 
@@ -33,15 +34,17 @@ class AnswerListContainer extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log("hey", state)
   return {
     currentBreeds: setCurrentBreed,
     correctAnswer: setCorrectAnswer,
     score: null,
     currentBreedList: state.game.currentBreeds,
+    color: state.setColor
   };
 };
 
 export default connect(
   mapStateToProps,
-  { fetchBreedList, setCorrectAnswer, setCurrentBreed, setBreedList, buttonClick }
+  { fetchBreedList, setCorrectAnswer, setCurrentBreed, setBreedList, setColor }
 )(AnswerListContainer);

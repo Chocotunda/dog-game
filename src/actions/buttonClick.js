@@ -12,20 +12,18 @@
 // }
 // }
 
-export function setResult () {
+export function button () {
     return function (dispatch){
-    const try1 = 1
+    const try1 = "green"
   
-    dispatch(buttonClick(try1))
+    dispatch(setColor(try1))
   }
 }
 
 
-export function buttonClick(payload) {
+export function setColor(payload) {
     return {
-      type: "BUTTON_CLICK",
+      type: "SET_COLOR",
       payload: payload
     };
   }
-
-
