@@ -24,7 +24,6 @@ class DogImage extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state, 'state')
   return {
     correctAnswer: state.game.correctAnswer,
     image: state.game.image
